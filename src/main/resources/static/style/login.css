@@ -1,0 +1,35 @@
+.login{
+    border: 2px solid;
+    width: 30%;
+    height: 160px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    background-color: #6bf78929;
+    border-radius: 10px;
+}
+.login div{
+    margin: 20px auto;
+}
+.login label{
+    width: 100px;
+    text-align: right;
+    font-size: 20px;
+    display: inline-block;
+}
+.login input{
+    width: 200px;
+    height: 20px;
+}
+.btn{
+    width: 200px;
+    background-color: blue;
+    color: aliceblue;
+    height: 30px;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.error{
+    color: red;
+}
