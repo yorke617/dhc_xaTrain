@@ -5,6 +5,7 @@ import com.dhc.dhc_xatrain.message.ReturnMsg;
 public class LoginForm extends ReturnMsg {
     private String username;
     private String password;
+    private String cryptoKey;
 
     public String getUsername() {
         return username;
@@ -20,5 +21,13 @@ public class LoginForm extends ReturnMsg {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCryptoKey() {
+        return cryptoKey;
+    }
+
+    public void setCryptoKey(String cryptoKey) {
+        this.cryptoKey = cryptoKey;
     }
 }

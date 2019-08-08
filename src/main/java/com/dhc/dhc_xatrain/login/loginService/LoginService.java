@@ -14,4 +14,10 @@ public interface LoginService {
      */
     public boolean login(LoginForm form) throws Exception;
 
+    /**
+     * 获取加密因子
+     * @return
+     */
+    public String getCryptoKey();
+
 }

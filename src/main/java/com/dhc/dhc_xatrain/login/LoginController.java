@@ -4,10 +4,7 @@ import com.dhc.dhc_xatrain.BaseController;
 import com.dhc.dhc_xatrain.login.loginService.LoginService;
 import com.dhc.dhc_xatrain.message.BackForm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +19,7 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public BackForm login(@RequestBody LoginForm form, HttpServletRequest request, HttpServletResponse response){
         try {
+            form.setCryptoKey(request.getSession().getAttribute("cryptoKey") + "");
             if (loginService.login(form)){
                 return setSuccessful(form);
             }else
@@ -29,6 +27,13 @@ public class LoginController extends BaseController {
         }catch (Exception e){
             return setError(e.getMessage());
         }
+    }
+    @PostMapping("/getCryptoKey")
+    public BackForm getCryptoKey(HttpServletRequest request, HttpServletResponse response){
+        LoginForm form = new LoginForm();
+        form.setCryptoKey(loginService.getCryptoKey());
+        request.getSession(true).setAttribute("cryptoKey", form.getCryptoKey());
+        return setSuccessful(form);
     }
 
 

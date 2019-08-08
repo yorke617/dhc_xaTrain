@@ -1,5 +1,7 @@
 package com.dhc.dhc_xatrain.login.loginService;
 
+import com.dhc.dhc_xatrain.Utils.EncryptUtil;
+import com.dhc.dhc_xatrain.Utils.WebUtil;
 import com.dhc.dhc_xatrain.daos.SysUserMapper;
 import com.dhc.dhc_xatrain.login.LoginForm;
 import com.dhc.dhc_xatrain.mapper.SysUser;
@@ -21,14 +23,26 @@ public class LoginImpl implements LoginService {
         if ("".equals(form.getUsername())){
             throw new Exception();
         }
+
+        String password = form.getPassword();
+        String cryptokey = form.getCryptoKey();
+        password = EncryptUtil.aesDecrypt(password, cryptokey);
+        System.out.println("解密后的明文：" + password);
+
         SysUser sysUser = sysUserMapper.queryUserByName(form.getUsername());
+        password = WebUtil.EncoderByMd5(password);
         if (sysUser == null){
             throw new Exception("该用户不存在！");
         }
-        if (!sysUser.getPassword().equals(form.getPassword())){
+        if (!sysUser.getPassword().equals(password)){
             throw new Exception("该用户密码不正确！");
         }
         form.setUserId(sysUser.getUserId());
         return true;
+    }
+
+    @Override
+    public String getCryptoKey() {
+        return EncryptUtil.getKey();
     }
 }
