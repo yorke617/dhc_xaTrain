@@ -36,5 +36,12 @@ public class LoginController extends BaseController {
         return setSuccessful(form);
     }
 
+    @PostMapping("/register")
+    public BackForm register(@RequestBody LoginForm form, HttpServletRequest request, HttpServletResponse response){
+
+
+        return setSuccessful();
+    }
+
 
 }

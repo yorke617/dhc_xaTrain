@@ -2,6 +2,7 @@ package com.dhc.dhc_xatrain.login.loginService;
 
 import com.dhc.dhc_xatrain.Utils.EncryptUtil;
 import com.dhc.dhc_xatrain.Utils.WebUtil;
+import com.dhc.dhc_xatrain.businessException.BusinessException;
 import com.dhc.dhc_xatrain.daos.SysUserMapper;
 import com.dhc.dhc_xatrain.login.LoginForm;
 import com.dhc.dhc_xatrain.mapper.SysUser;
@@ -45,4 +46,20 @@ public class LoginImpl implements LoginService {
     public String getCryptoKey() {
         return EncryptUtil.getKey();
     }
+
+    @Override
+    public void register(LoginForm form) {
+        if (form == null){
+            throw new BusinessException("注册信息为空，请检查！");
+        }
+        //检验，和前台一样
+        verifyRegister(form);
+        //写登录信息
+        writeLoginInfo(form);
+        //写默认的角色
+        setDefaultRole(form);
+
+    }
+
+
 }

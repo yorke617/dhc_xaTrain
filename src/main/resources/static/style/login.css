@@ -1,11 +1,11 @@
 .login{
     border: 2px solid;
     width: 30%;
-    height: 160px;
+    /*height: 160px;*/
     margin: 0 auto;
     padding: 30px;
     text-align: center;
-    background-color: #6bf78929;
+    background-color: #6bf789;
     border-radius: 10px;
 }
 .login div{

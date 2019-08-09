@@ -24,11 +24,20 @@ public class BaseController {
         backForm.setStatus(999);
         backForm.setSuccess(false);
         backForm.setReturnMsg(null);
+        backForm.setMessage("系统异常，请联系系统管理员！");
         return backForm;
     }
     public BackForm setError(String message){
         BackForm backForm = new BackForm();
         backForm.setStatus(999);
+        backForm.setSuccess(false);
+        backForm.setReturnMsg(null);
+        backForm.setMessage(message);
+        return backForm;
+    }
+    public BackForm setError(int status, String message){
+        BackForm backForm = new BackForm();
+        backForm.setStatus(status);
         backForm.setSuccess(false);
         backForm.setReturnMsg(null);
         backForm.setMessage(message);

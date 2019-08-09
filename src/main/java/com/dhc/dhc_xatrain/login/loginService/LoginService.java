@@ -20,4 +20,10 @@ public interface LoginService {
      */
     public String getCryptoKey();
 
+    /**
+     * 注册用户
+     * @param form
+     */
+    public void register(LoginForm form);
+
 }

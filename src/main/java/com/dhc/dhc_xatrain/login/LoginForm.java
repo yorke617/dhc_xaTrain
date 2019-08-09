@@ -7,6 +7,14 @@ public class LoginForm extends ReturnMsg {
     private String password;
     private String cryptoKey;
 
+    //注册信息
+    private String reUserName;
+    private String rePassword;
+    private String confirmRePassword;
+    private String reMail;
+    private String phone;
+    private String department;
+
     public String getUsername() {
         return username;
     }
@@ -29,5 +37,53 @@ public class LoginForm extends ReturnMsg {
 
     public void setCryptoKey(String cryptoKey) {
         this.cryptoKey = cryptoKey;
+    }
+
+    public String getReUserName() {
+        return reUserName;
+    }
+
+    public void setReUserName(String reUserName) {
+        this.reUserName = reUserName;
+    }
+
+    public String getRePassword() {
+        return rePassword;
+    }
+
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
+    }
+
+    public String getConfirmRePassword() {
+        return confirmRePassword;
+    }
+
+    public void setConfirmRePassword(String confirmRePassword) {
+        this.confirmRePassword = confirmRePassword;
+    }
+
+    public String getReMail() {
+        return reMail;
+    }
+
+    public void setReMail(String reMail) {
+        this.reMail = reMail;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }

@@ -27,6 +27,43 @@
                 </div>
                 <div>
                     <button class="btn" id="login" >登&nbsp;&nbsp;录</button>
+                    <button class="btn" id="register" >注&nbsp;&nbsp;册</button>
+                </div>
+            </div>
+
+            <div id="registerForm" class="login" style="display:none">
+                <div>
+                    <label>用户名：</label>
+                    <input type="text" id="reUserName" class="username" maxlength="50"/>
+                    <span class="error"></span>
+                </div>
+                <div>
+                    <label>密码：</label>
+                    <input type="password" id="rePassword" class="password confirmPwd" maxlength="100"/>
+                    <span class="error"></span>
+                </div>
+                <div>
+                    <label>确认密码：</label>
+                    <input type="password" id="confirmRePassword" class="password confirmPwd" />
+                    <span class="error"></span>
+                </div>
+                <div>
+                    <label>邮箱：</label>
+                    <input type="text" id="reMail" />
+                    <span class="error"></span>
+                </div>
+                <div>
+                    <label>电话：</label>
+                    <input type="text" id="phone" />
+                    <span class="error"></span>
+                </div>
+                <div>
+                    <label>部门：</label>
+                    <input type="text" id="department" />
+                    <span class="error"></span>
+                </div>
+                <div>
+                    <button class="btn" id="registerBtn" >注&nbsp;&nbsp;册</button>
                 </div>
             </div>
         </div>
