@@ -61,5 +61,26 @@ public class LoginImpl implements LoginService {
 
     }
 
+    /**
+     * 校验注册信息
+     * @param form
+     */
+    private void verifyRegister(LoginForm form) {
+    }
+
+    /**
+     * 写登录信息
+     * @param form
+     */
+    private void writeLoginInfo(LoginForm form) {
+    }
+
+    /**
+     * 设置默认角色
+     * @param form
+     */
+    private void setDefaultRole(LoginForm form) {
+    }
+
 
 }
