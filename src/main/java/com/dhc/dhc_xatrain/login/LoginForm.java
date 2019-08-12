@@ -2,7 +2,9 @@ package com.dhc.dhc_xatrain.login;
 
 import com.dhc.dhc_xatrain.message.ReturnMsg;
 
-public class LoginForm extends ReturnMsg {
+import java.io.Serializable;
+
+public class LoginForm extends ReturnMsg implements Serializable {
     private String username;
     private String password;
     private String cryptoKey;
@@ -14,6 +16,8 @@ public class LoginForm extends ReturnMsg {
     private String reMail;
     private String phone;
     private String department;
+    private String loginIp;
+
 
     public String getUsername() {
         return username;
@@ -86,4 +90,13 @@ public class LoginForm extends ReturnMsg {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    public String getLoginIp() {
+        return loginIp;
+    }
+
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp;
+    }
+
 }

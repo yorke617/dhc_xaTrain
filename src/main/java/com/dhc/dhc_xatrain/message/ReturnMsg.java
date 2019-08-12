@@ -2,13 +2,13 @@ package com.dhc.dhc_xatrain.message;
 
 public class ReturnMsg {
 
-    private long userId;
+    private Long userId;
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 }

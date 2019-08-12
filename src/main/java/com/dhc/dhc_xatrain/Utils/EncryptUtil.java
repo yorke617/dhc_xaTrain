@@ -11,6 +11,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Random;
+import java.util.UUID;
 
 public class EncryptUtil {
 	private static final String KEY = "o7H8uIM2O5qv65l2";
@@ -109,6 +110,10 @@ public class EncryptUtil {
 		}
 		
 		return hexString.toString().substring(16);
+	}
+
+	public static String getRandomCode(){
+		return UUID.randomUUID().toString();
 	}
 
 	/**

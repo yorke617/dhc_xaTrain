@@ -107,9 +107,10 @@ function confirmPwd() {
     var confirmRePassword = $("#confirmRePassword").val();
     if (confirmRePassword != rePassword) {
         $("#confirmRePassword").next().text("确认密码与密码不一致！");
-        return;
+        return false;
     }else {
         $("#confirmRePassword").next().text("");
+        return  true;
     }
 }
 

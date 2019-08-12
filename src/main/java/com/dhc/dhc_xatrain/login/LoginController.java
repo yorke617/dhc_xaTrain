@@ -1,6 +1,7 @@
 package com.dhc.dhc_xatrain.login;
 
 import com.dhc.dhc_xatrain.BaseController;
+import com.dhc.dhc_xatrain.Utils.WebUtil;
 import com.dhc.dhc_xatrain.login.loginService.LoginService;
 import com.dhc.dhc_xatrain.message.BackForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,8 @@ public class LoginController extends BaseController {
 
     @PostMapping("/register")
     public BackForm register(@RequestBody LoginForm form, HttpServletRequest request, HttpServletResponse response){
-
-
+        form.setLoginIp(WebUtil.getIpAddr(request));
+        loginService.register(form);
         return setSuccessful();
     }
 
