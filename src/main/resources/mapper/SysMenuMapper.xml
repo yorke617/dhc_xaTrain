@@ -41,4 +41,16 @@
     select menu_id, parent_id, menu_name, menu_url, type, icon, isShow, order_num, menu_state
     from sys_menu
   </select>
+  <select id="selectMenusByUser" resultMap="BaseResultMap" parameterType="long">
+    SELECT
+        c.menu_id, parent_id, menu_name, menu_url, type, icon, isShow, order_num, menu_state
+    FROM
+        sys_user_role a,
+        sys_role_menu b,
+        sys_menu c
+    WHERE
+        a.role_id = b.role_id
+    AND b.menu_id = c.menu_id
+    AND a.user_id = #{userId,jdbcType=BIGINT}
+  </select>
 </mapper>

@@ -168,6 +168,24 @@ function login() {
     // })
     request("/login/login", data, function (re) {
         if (re.success){
+            // $("#loginForm").hide();
+            // $("#registerForm").hide();
+            /*
+            <ul>
+                <li url=""><i class=""></i>菜单1</li>
+                <li url=""><i class=""></i>菜单1</li>
+                <li url=""><i class=""></i>菜单1</li>
+            </ul>
+             */
+            var menuHtml = "<ul>";
+            for (i = 0; i < re.returnMsg.menusList.length; i++) {
+                menuHtml += ('<li url="' + re.returnMsg.menusList[i].menuUrl
+                    + '"><i class="' + re.returnMsg.menusList[i].icon + '"></i>'
+                    + re.returnMsg.menusList[i].menuName + '</li>');
+            }
+            menuHtml += "</ul>";
+
+            $("#body").html($("#index").html(menuHtml));
             alert("登录成功");
         } else{
             alert(re.message);

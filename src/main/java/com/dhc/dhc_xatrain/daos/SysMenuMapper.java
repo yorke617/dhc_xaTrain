@@ -19,4 +19,11 @@ public interface SysMenuMapper {
      * @mbggenerated Wed Aug 07 11:36:21 CST 2019
      */
     List<SysMenu> selectAll();
+
+    /**
+     *
+     * @param userId
+     * @return
+     */
+    List<SysMenu> selectMenusByUser(long userId);
 }

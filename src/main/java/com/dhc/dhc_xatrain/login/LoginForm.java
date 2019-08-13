@@ -1,8 +1,10 @@
 package com.dhc.dhc_xatrain.login;
 
+import com.dhc.dhc_xatrain.mapper.SysMenu;
 import com.dhc.dhc_xatrain.message.ReturnMsg;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class LoginForm extends ReturnMsg implements Serializable {
     private String username;
@@ -17,6 +19,10 @@ public class LoginForm extends ReturnMsg implements Serializable {
     private String phone;
     private String department;
     private String loginIp;
+
+    //菜单列表
+//    private List<Menus> menusList;
+    private List<SysMenu> menusList;
 
 
     public String getUsername() {
@@ -99,4 +105,11 @@ public class LoginForm extends ReturnMsg implements Serializable {
         this.loginIp = loginIp;
     }
 
+    public List<SysMenu> getMenusList() {
+        return menusList;
+    }
+
+    public void setMenusList(List<SysMenu> menusList) {
+        this.menusList = menusList;
+    }
 }

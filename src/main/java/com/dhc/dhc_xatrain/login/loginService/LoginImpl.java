@@ -4,9 +4,12 @@ import com.dhc.dhc_xatrain.Utils.EncryptUtil;
 import com.dhc.dhc_xatrain.Utils.WebUtil;
 import com.dhc.dhc_xatrain.businessException.BusinessException;
 import com.dhc.dhc_xatrain.constant.Constant;
+import com.dhc.dhc_xatrain.daos.SysMenuMapper;
 import com.dhc.dhc_xatrain.daos.SysUserMapper;
 import com.dhc.dhc_xatrain.daos.SysUserRoleMapper;
 import com.dhc.dhc_xatrain.login.LoginForm;
+import com.dhc.dhc_xatrain.login.Menus;
+import com.dhc.dhc_xatrain.mapper.SysMenu;
 import com.dhc.dhc_xatrain.mapper.SysUser;
 import com.dhc.dhc_xatrain.mapper.SysUserRole;
 import org.apache.logging.log4j.util.Strings;
@@ -14,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -23,6 +28,8 @@ public class LoginImpl implements LoginService {
     private SysUserMapper sysUserMapper;
     @Autowired
     private SysUserRoleMapper sysUserRoleMapper;
+    @Autowired
+    private SysMenuMapper sysMenuMapper;
 
     @Override
     public boolean login(LoginForm form) throws Exception {
@@ -132,8 +139,19 @@ public class LoginImpl implements LoginService {
         if (record != 1){
             throw new BusinessException("注册用户角色信息保存出错！");
         }
-        int a = 1/0;
+//        int a = 1/0;
     }
 
+    @Override
+    public List<SysMenu> getMenus(long userId) {
+        if (userId == 0){
+            throw new BusinessException("获取功能菜单信息为空！");
+        }
+        List<SysMenu> sysMenus = sysMenuMapper.selectMenusByUser(userId);
+        if (sysMenus == null){
+            throw new BusinessException("该人员没有相应的功能！");
+        }
 
+        return sysMenus;
+    }
 }
